@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Player</title>
+     <style>
+        body{
+            background-image: url("http://sequencewiz.org/wp-content/uploads/2015/10/Thank-you-Image.png");
+               background-size: 100%;
+
+        }
+     p{
+           text-align: center;
+           color: white;
+            font-size: xx-large;
+       }
+
+    </style>
+	<meta charset="utf8">
+    {% load staticfiles %}
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="{% url 'music:index' %}" class="navbar-brand"><em>Indiana</em> <span class="glyphicon glyphicon-music"></span></a>
+        </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li><a href="#" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
+            <li><a href="#">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+             <li><a href="#" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
+            <li><a href="{% url 'music:contact' %}" class="active">Contact-us <span class="glyphicon glyphicon-phone"></span></a></li>
+             <li><a href="{% url 'music:logout' %}" class="active">Logout <span class="glyphicon glyphicon-off"></span></a></li>
+             <li><a href="{% url 'music:login' %}" class="active">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+        </ul>
+    </div>
+    </div>
+    </nav>
+	   <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+
+    <p>Visit us at www.agiliq.com</p>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

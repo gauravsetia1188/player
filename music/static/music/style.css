@@ -1,0 +1,53 @@
+.navbar-brand {
+    font-family: 'Satisfy', cursive;
+    font-size:larger;
+}
+
+
+.navbar {
+    border-radius: 0px;
+
+}
+.panel-body{
+
+    background-image:url("http://digitalservicescompany.com/wp-content/uploads/2015/02/background-css-tutorial-animation.png");
+    color: darkgray;
+}
+
+.contactpic{
+    position: relative;
+    left: 697px;
+    bottom: 19.8px;
+    border-radius: 0%;
+}
+
+.chaska{
+
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: small;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+#aaa{
+    font-size: medium;
+    color: gray;
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+
+}
+.form_bg {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    color:grey;
+    padding:40px 5px 20px 5px;
+    border-radius:10px;
+    position: absolute;
+    border:1px solid #fff;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 200px;
+}
