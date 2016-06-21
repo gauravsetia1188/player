@@ -4,9 +4,9 @@
 	<title>Player</title>
      <style>
         body{
-            background-image: url("http://previews.123rf.com/images/seregam/seregam1203/seregam120300125/12625313-blue-guitar-at-black-background-Stock-Photo-music.jpg");
+            background-image: url("http://allpicts.in/wp-content/uploads/2016/03/Repeating-CSS-Background-Images-with-Wood-Texture.jpg");
                background-size: 100%;
-            background-repeat: no-repeat;
+            background-repeat: repeat-x;
 
         }
 
@@ -41,10 +41,10 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href=""{% url "music:addalbum" %}"" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
+            <li><a href="{% url "music:addalbum" %}" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
             <li><a href="{% url 'music:contact' %}" class="active">Contact-us <span class="glyphicon glyphicon-phone"></span></a></li>
 
-            <li><a href="{% url 'music:logout' %}" class="active">Logout <span class="glyphicon glyphicon-off"></span></a></li>
+            <li><a href="{% url "music:logout" %} " class="active">Logout <span class="glyphicon glyphicon-off"></span></a></li>
             <li><a href="{% url 'music:login' %}" class="active">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
 
 
@@ -60,34 +60,34 @@ $(document).ready(function(){
 });
 </script>
 
-<div class="row">
-<div class="form_bg">
-        <form class="form-horizontal" role="form" action="{% url 'music:login'%} " method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-                <div class="form-group">
-                    <label class="control-label col-sm-3" for="username">Username:</label>
-                    <div class="col-sm-9">
-                        <input id="username" maxlength="50" name="username" type="text" placeholder="Indiana">
-                    </div>
-                </div>
-             <div class="form-group">
-                    <label class="control-label col-sm-3" for="password">Password:</label>
-                    <div class="col-sm-9">
-                        <input id="password" maxlength="20" name="password" type="password" placeholder="********">
-                    </div>
-            </div>
-        <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-                <button type="submit" class="btn btn-info" >Submit</button>
-            </div>
-        </div>
-        <p><strong>Dont have an account?</strong>
-            <a href="{% url 'music:signin' %}" ><strong>Sign-in</strong></a>
-        </p>
-        </form>
+<table class="table">
+    <thead>
+        <tr id="heading">
+            <th>Album</th>
+            <th>Artist</th>
+            <th>Song</th>
+            <th>Audio</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for song in song_list %}
+          <tr id="body">
+              <td>{{ song.album }}</td>
+              <td>{{ song.album.artist }}</td>
+              <td>{{ song.song_title }}</td>
+              <td>
+                 <audio controls >
+                     <source src="{{ song.audio_file.url }}" type="audio/mpeg">
 
-    </div>
-</div>
+                </audio>
+
+              </td>
+          </tr>
+      {% endfor %}
+    </tbody>
+</table>
 
 </body>
 </html>
+
+

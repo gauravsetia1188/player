@@ -1,16 +1,15 @@
 from django.db import models
-
-
-
+from django.contrib.auth.models import Permission, User
 
 class Album(models.Model):
+    user = models.ForeignKey(User,default=1)
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=250)
     genre = models.CharField(max_length=250)
     album_logo = models.FileField(max_length=250)
 
     def __str__(self):
-        return self.artist + " " + self.album_title
+        return self.album_title
 
 
 class Song(models.Model):

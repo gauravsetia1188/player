@@ -4,10 +4,10 @@
 	<title>Player</title>
      <style>
         body{
-            background-image: url("http://previews.123rf.com/images/seregam/seregam1203/seregam120300125/12625313-blue-guitar-at-black-background-Stock-Photo-music.jpg");
+            background-image: url("http://www.pageresource.com/wallpapers/wallpaper/dual-monitor-nature-chicago-landscape-hd-city.jpg");
                background-size: 100%;
             background-repeat: no-repeat;
-
+             background-image: url('http://www.minimit.com/images/picjumbo.com_IMG_6648.jpg');
         }
 
     </style>
@@ -41,7 +41,7 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href=""{% url "music:addalbum" %}"" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
+            <li><a href="{% url "music:addalbum" %}" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
             <li><a href="{% url 'music:contact' %}" class="active">Contact-us <span class="glyphicon glyphicon-phone"></span></a></li>
 
             <li><a href="{% url 'music:logout' %}" class="active">Logout <span class="glyphicon glyphicon-off"></span></a></li>
@@ -61,33 +61,41 @@ $(document).ready(function(){
 </script>
 
 <div class="row">
-<div class="form_bg">
-        <form class="form-horizontal" role="form" action="{% url 'music:login'%} " method="post" enctype="multipart/form-data">
+<div class="form_bg1">
+        <form class="form-horizontal" role="form" action="{% url 'music:addalbum'%} " method="post" enctype="multipart/form-data">
             {% csrf_token %}
                 <div class="form-group">
-                    <label class="control-label col-sm-3" for="username">Username:</label>
+                    <label class="control-label col-sm-3" for="artist">Artist:</label>
                     <div class="col-sm-9">
-                        <input id="username" maxlength="50" name="username" type="text" placeholder="Indiana">
+                        <input id="artist" maxlength="50" name="artist" type="text" >
                     </div>
                 </div>
-             <div class="form-group">
-                    <label class="control-label col-sm-3" for="password">Password:</label>
+                 <div class="form-group">
+                    <label class="control-label col-sm-3" for="album_title">Name:</label>
                     <div class="col-sm-9">
-                        <input id="password" maxlength="20" name="password" type="password" placeholder="********">
+                        <input id="album_title" maxlength="50" name="album_title" type="text" >
                     </div>
-            </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="genre">Genre:</label>
+                    <div class="col-sm-9">
+                        <input id="genre" maxlength="50" name="genre" type="text" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="album_logo">Logo:</label>
+                    <div class="col-sm-9">
+                        <input id="album_logo" maxlength="500" name="album_logo" type="file" >
+                    </div>
+                </div>
+
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
                 <button type="submit" class="btn btn-info" >Submit</button>
             </div>
         </div>
-        <p><strong>Dont have an account?</strong>
-            <a href="{% url 'music:signin' %}" ><strong>Sign-in</strong></a>
-        </p>
+
         </form>
 
     </div>
 </div>
-
-</body>
-</html>

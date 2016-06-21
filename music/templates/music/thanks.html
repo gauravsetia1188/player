@@ -46,7 +46,7 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
-             <li><a href="#" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
+             <li><a href="{% url "music:addalbum" %}" class="active">Add-Album <span class="glyphicon glyphicon-plus"></span></a></li>
             <li><a href="{% url 'music:contact' %}" class="active">Contact-us <span class="glyphicon glyphicon-phone"></span></a></li>
              <li><a href="{% url 'music:logout' %}" class="active">Logout <span class="glyphicon glyphicon-off"></span></a></li>
              <li><a href="{% url 'music:login' %}" class="active">Login <span class="glyphicon glyphicon-log-in"></span></a></li>

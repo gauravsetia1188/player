@@ -3,7 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.views import generic
 from .models import Album,Song
 from django.views.generic import View
-from .forms import ContactForm , SignInForm
+from .forms import ContactForm,SignInForm,AddalbumForm
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login,logout
 
@@ -96,6 +96,36 @@ def logout_user(request):
     else:
         return render(request, 'music/index.html',{'all_albums': Album.objects.all(), 'error_message': 'Login First :)'})
 
+class add_album(View):
+    form_class = AddalbumForm
+    template_name = 'music/add.html'
+    def get(self,request):
+        form = self.form_class(None)
+        return render(request,'music/add.html', {'form':form })
+
+    def post(self,request):
+
+        form = self.form_class(request.POST or None,request.FILES or None)
+        if not request.user.is_authenticated():
+            return render(request, 'music/index.html',{'all_albums': Album.objects.all(), 'error_message': 'Login First :)'})
+        if form.is_valid():
+            album = form.save(commit=False)
+            album.user = request.user
+            album.album_logo = request.FILES['album_logo']
+            album.save()
+            return render(request, 'music/index.html',{'all_albums': Album.objects.all(), 'error_message': 'Album successfully added'})
+        return render(request, template_name, {'form': form,})
+
+def songs(request):
+    if not request.user.is_authenticated():
+        return render(request, 'music/index.html',{'all_albums': Album.objects.all(), 'error_message': 'Login First :)'})
+    user_albums = Album.objects.filter(user=request.user)
+    song_id = []
+    for album in user_albums:
+        for song in album.song_set.all():
+            song_id.append(song.pk)
+    user_songs = Song.objects.filter(pk__in=song_id)
+    return render(request,'music/songs.html',{'song_list':user_songs,})
 
 
 

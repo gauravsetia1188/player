@@ -51,3 +51,30 @@
     width: 400px;
     height: 200px;
 }
+
+.form_bg1{
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    color: black;
+    padding: 40px 15px;
+
+    margin:150px 0px 40px 490px ;
+
+    position: absolute;
+    width: 400px;
+    height: 300px;
+
+
+}
+
+#heading{
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: x-large;
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+#body{
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    color: white;
+}
+
