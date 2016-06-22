@@ -3,7 +3,7 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.views import generic
 from .models import Album,Song
 from django.views.generic import View
-from .forms import ContactForm,SignInForm,AddalbumForm
+from .forms import ContactForm,SignInForm,AddalbumForm,AddSongForm
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login,logout
 
@@ -119,13 +119,46 @@ class add_album(View):
 def songs(request):
     if not request.user.is_authenticated():
         return render(request, 'music/index.html',{'all_albums': Album.objects.all(), 'error_message': 'Login First :)'})
-    user_albums = Album.objects.filter(user=request.user)
-    song_id = []
-    for album in user_albums:
-        for song in album.song_set.all():
-            song_id.append(song.pk)
-    user_songs = Song.objects.filter(pk__in=song_id)
-    return render(request,'music/songs.html',{'song_list':user_songs,})
+    try:
+        song_id = []
+        user_albums = Album.objects.filter(user=request.user)
+        for album in user_albums:
+            for song in album.song_set.all():
+                song_id.append(song.pk)
+
+        user_songs = Song.objects.filter(pk__in=song_id)
+    except:
+        user_songs = []
+    return render(request, 'music/songs.html', {'song_list': user_songs,})
+
+
+class addsong(View):
+    form_class = AddSongForm
+    template_name = 'music/addsong.html'
+
+    def get(self,request):
+        form = self.form_class(None)
+        return render(request,'music/addsong.html',{'form':form,})
+
+    def post(self,request):
+        form = self.form_class(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            form.save()
+        return render(request, 'music/index.html', {'all_albums': Album.objects.all()})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

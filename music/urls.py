@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout_user, name="logout"),
     url(r'^addalbum/$', views.add_album.as_view(), name="addalbum"),
     url(r'^songs/$', views.songs, name="songs"),
-
+    url(r'^addsong/$', views.addsong.as_view(), name="addsong"),
 ]
 
 

@@ -37,7 +37,7 @@
     <div>
         <ul class="nav navbar-nav">
             <li><a href="#" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
-            <li><a href="#">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
+            <li><a href="{% url 'music:songs' %}">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -59,7 +59,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-
+<ul class="nav nav-pills " >
+<li class="active" id="pill"><a href="{% url 'music:addsong' %}">Add Song</a></li>
+</ul>
+<br>
 <table class="table">
     <thead>
         <tr id="heading">
@@ -76,10 +79,11 @@ $(document).ready(function(){
               <td>{{ song.album.artist }}</td>
               <td>{{ song.song_title }}</td>
               <td>
-                 <audio controls >
-                     <source src="{{ song.audio_file.url }}" type="audio/mpeg">
-
-                </audio>
+                  <a target="_blank" href="{{ song.audio_file.url }}">
+                      <button type="button" class="btn btn-danger btn-xs">
+                          <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                      </button>
+                  </a>
 
               </td>
           </tr>
