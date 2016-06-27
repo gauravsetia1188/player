@@ -36,7 +36,7 @@
         </div>
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="#" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
+            <li><a href="{% url 'music:albums' %}" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
             <li><a href="{% url 'music:songs' %}">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
 
         </ul>
@@ -62,7 +62,7 @@ $(document).ready(function(){
          <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="panel panel-default">
                <div class="panel-heading"><strong>Have some queries? We would like to hear it from you!  </strong><span class="glyphicon glyphicon-envelope"></span></div>
-                    <div class="panel-body">
+                    <div class="panel-body" id="conta">
 
                         <form role="form" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                             {% csrf_token %}

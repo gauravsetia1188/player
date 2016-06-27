@@ -24,7 +24,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 
 <body>
@@ -37,7 +37,7 @@
         </div>
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="#" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
+            <li><a href="{% url 'music:albums' %}" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
             <li><a href="{% url 'music:songs' %}">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
 
         </ul>
@@ -62,7 +62,7 @@ $(document).ready(function(){
  <div class="container-fluid">
  <div class="chaska">
      <div class="row">
-         <div class="col-sm-12 col-md-6 col-lg-6">
+         <div class="col-sm-12 col-md-6 col-lg-6" id="contactcentre">
 
 
                         <form role="form" action="" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -76,7 +76,7 @@ $(document).ready(function(){
                                           <div class="col-sm-8 col-md-8"  >{{ field }}</div>
                                     </div>
                                 {% endfor %}
-                        <div class="g-recaptcha" data-sitekey="6LffvyITAAAAAOtkY_9jxF61mDEDgrG46CdjZ8Ug"></div>
+
                             <div class="form-group">
                                <div class="col-sm-offset-2 col-sm-10">
                                     <button type="submit" class="btn btn-default">Submit</button>

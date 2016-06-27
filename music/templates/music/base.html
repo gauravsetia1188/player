@@ -4,7 +4,7 @@
 	<title>Player</title>
      <style>
         body{
-            background-image: url("http://shmusic.gmondragon.com/assets/images/2.jpg");
+            background-image: url("http://self-inspiration.com/bundles/selfinspiration/article_pictures/71.jpg");
                background-size: 100%;
             background-repeat: no-repeat;
 
@@ -36,7 +36,7 @@
         </div>
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="#" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
+            <li><a href="{% url 'music:albums' %}" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
             <li><a href="{% url 'music:songs' %}">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
 
         </ul>

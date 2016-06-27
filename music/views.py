@@ -6,12 +6,11 @@ from django.views.generic import View
 from .forms import ContactForm,SignInForm,AddalbumForm,AddSongForm
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import get_object_or_404
 
-class IndexView(generic.ListView):
-    template_name = 'music/index.html'
-    context_object_name = 'all_albums'
-    def get_queryset(self):
-        return Album.objects.all()
+def IndexView(request):
+    context = Album.objects.filter(pk__in=range(1,8))
+    return render(request,'music/index.html',{'all_albums': context})
 
 class ContactView(View):
     form_class = ContactForm
@@ -149,10 +148,20 @@ class addsong(View):
 
 
 
+def albums(request):
+    all_albums = Album.objects.filter(user=request.user)
+    return render(request,'music/albums.html',{'all_albums': all_albums})
+
+class details(generic.DetailView):
+    model = Album
+    template_name = 'music/details.html'
 
 
-
-
+def songdelete(request,pk):
+    song = Song.objects.get(pk=pk)
+    song.delete()
+    all_albums = Album.objects.filter(user=request.user)
+    return render(request, 'music/albums.html', {'all_albums': all_albums})
 
 
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import Permission, User
+from django.core.urlresolvers import reverse
 
 class Album(models.Model):
     user = models.ForeignKey(User,default=1)
@@ -10,6 +11,7 @@ class Album(models.Model):
 
     def __str__(self):
         return self.album_title
+
 
 
 class Song(models.Model):

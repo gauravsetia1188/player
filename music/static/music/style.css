@@ -8,7 +8,7 @@
     border-radius: 0px;
 
 }
-.panel-body{
+#conta{
 
     background-image:url("http://digitalservicescompany.com/wp-content/uploads/2015/02/background-css-tutorial-animation.png");
     color: darkgray;
@@ -57,7 +57,7 @@
     color: black;
     padding: 40px 15px;
 
-    margin:150px 0px 40px 490px ;
+
 
     position: absolute;
     width: 400px;
@@ -81,5 +81,85 @@
 #pill{
     margin-left: 10px;
 
+}
+#name{
+     color: greenyellow;
+    font-size: xx-large;
+
+    margin-left: 10px;
 
 }
+
+code{
+    margin-left: 10px;
+
+}
+
+#detailpanel{
+    height: 400px;
+    width: 100%;
+    float: left;
+    background-image: url("http://wallpapercave.com/wp/OoUy13w.jpg");
+}
+
+#detailpanelheading{
+
+    height: 60px;
+    padding-top: 13px ;
+    padding-left: 20px;
+    font-size: x-large;
+    font-family: Satisfy;
+
+}
+
+#detailpanelbody{
+    height: 255px;
+    width: 369px;
+    margin-left: 0px;
+
+}
+
+#detailtable{
+    color: black;
+
+}
+#index {
+    font-family: Harrington;
+    font-size: 60px;
+    margin-left: 30px;
+    margin-top: 30px;
+
+}
+
+#index1 {
+    font-family: Harrington;
+    font-size: 30px;
+    margin-left: 30px;
+
+
+}
+
+#index2 {
+    font-family: Harrington;
+    font-size: 15px;
+    margin-left: 30px;
+
+}
+
+#contactcentre{
+    margin-left: 250px;
+    margin-top: 90px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

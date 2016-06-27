@@ -4,7 +4,7 @@
 	<title>Player</title>
      <style>
         body{
-            background-image: url("http://allpicts.in/wp-content/uploads/2016/03/Repeating-CSS-Background-Images-with-Wood-Texture.jpg");
+            background-image: url("http://self-inspiration.com/bundles/selfinspiration/article_pictures/71.jpg");
                background-size: 100%;
             background-repeat: repeat-x;
 
@@ -36,7 +36,7 @@
         </div>
     <div>
         <ul class="nav navbar-nav">
-            <li><a href="#" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
+            <li><a href="{% url 'music:albums' %}" class="active">Albums <span class="glyphicon glyphicon-headphones"></span></a></li>
             <li><a href="{% url 'music:songs' %}">Songs <span class="glyphicon glyphicon-cd"></span></a></li>
 
         </ul>
@@ -59,9 +59,11 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
 </script>
-<ul class="nav nav-pills " >
-<li class="active" id="pill"><a href="{% url 'music:addsong' %}">Add Song</a></li>
-</ul>
+<a href="{% url 'music:addsong' %}">
+ <button type="button" class="btn btn-success btn-xs">
+      Add Song
+ </button>
+</a>
 <br>
 <table class="table">
     <thead>
@@ -70,6 +72,7 @@ $(document).ready(function(){
             <th>Artist</th>
             <th>Song</th>
             <th>Audio</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -80,11 +83,18 @@ $(document).ready(function(){
               <td>{{ song.song_title }}</td>
               <td>
                   <a target="_blank" href="{{ song.audio_file.url }}">
-                      <button type="button" class="btn btn-danger btn-xs">
+                      <button type="button" class="btn btn-success btn-xs">
                           <span class="glyphicon glyphicon-play"></span>&nbsp; Play
                       </button>
                   </a>
 
+              </td>
+              <td>
+                  <a href="{% url 'music:deletesong' pk=song.pk %}">
+                     &nbsp;&nbsp; <button type="button" class="btn btn-success btn-xs">
+                          <span class="glyphicon glyphicon-trash"></span>
+                      </button>
+                  </a>
               </td>
           </tr>
       {% endfor %}
